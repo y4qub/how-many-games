@@ -1,0 +1,27 @@
+<span class="autocomplete">
+
+  <input
+    (blur)="hideList()"
+    (focus)="openList()"
+    (ngModelChange)="change($event)"
+    [ngModel]="championObj?.name"
+    [disabled]="!championObj?.name"
+    type="text">
+
+  <img src="../../assets/imgs/arrow-down.svg" id="arrow-down" (click)="showList = !showList; listOpened.emit(showList)">
+
+  <div id="autocomplete-box" *ngIf="showList && filteredChampions">
+
+    <div class="autocomplete-item"
+         *ngFor="let champ of filteredChampions"
+         (click)="select(champ)"
+         (mouseenter)="mouseInList = true"
+         (mouseleave)="mouseInList = false">
+
+      {{champ.name}}
+
+    </div>
+
+  </div>
+
+</span>

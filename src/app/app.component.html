@@ -1,0 +1,77 @@
+<div *ngIf="activeTab" class="menu">
+
+  <div *ngIf="activeTab == 'contact'">
+    <div class="title">Author</div>
+    Yaqub Murcek
+    <br>
+    <i>murcja812@gmail.com</i>
+    <br>
+    <br>
+    <div class="link" (click)="hide()">Back</div>
+  </div>
+
+  <div *ngIf="activeTab == 'legal'">
+    <div class="title">Legal</div>
+    This simple site doesn't store / track any of your personal data :)
+    <br>
+    The only data you give us is your LoL username so that we can ask Riot servers how many games you've played and show you the results.
+    <br>
+    <br>
+    By using this website, you fully agree with all the policies described below.
+    <br>
+    I'm not liable for any damage that may happen with the user before, during or after the access of this website.
+    The user is responsible to verify if the content may be misleading or cause damage.
+    <br>
+    This website and its services might have interruptions, tecnical failures and may be unavailable.
+    I'm not liable for any losses and or damages the downtime of the service may cause.
+    <br>
+    <br>
+    HowManyGames.co was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.
+    <br>
+    <br>
+    <div class="link" (click)="hide()">Back</div>
+  </div>
+
+  <div *ngIf="activeTab == 'donate'">
+    CONTACT
+    <br>
+    <br>
+    <div class="link" (click)="hide()">Back</div>
+  </div>
+
+</div>
+
+<div style="position: absolute; top: 50px; left: 50px">
+  <select style="font-size: 20px;" [(ngModel)]="selectedServer" (change)="request()">
+    <option *ngFor="let server of servers" [value]="server.key">{{server.name}}</option>
+  </select>
+</div>
+
+<main>
+
+  <section>
+
+    <span style="font-weight: bold;">How Many Games </span>
+    <span>has</span>
+    <input type="text" id="username-input" [(ngModel)]="username" (ngModelChange)="usernameChange()" autofocus>
+    <span>played&nbsp;with</span>
+    <app-autocomplete-select (champion)="championChange($event)" (listOpened)="listChange($event)"></app-autocomplete-select>
+
+    <div id="total-games">{{value}}</div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div id="links">
+    <div (click)="openLegal()">Legal</div>
+    <div (click)="openContact()">Author</div>
+<!--    <div (click)="openDonate()">Buy Me a Skin</div>-->
+  </div>
+  <div id="notice">HowManyGames.co isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
+    or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
+    trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+  </div>
+
+</footer>

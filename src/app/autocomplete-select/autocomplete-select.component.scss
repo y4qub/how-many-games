@@ -1,0 +1,73 @@
+@import '~src/variables.scss';
+
+.autocomplete {
+  position: relative;
+  display: inline-block !important;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  font-family: proxima-nova, sans-serif;
+  color: $text-primary-color;
+  text-align: center;
+  width: 148px;
+  transition: $transition;
+  padding: 4px 8px;
+  margin: 0 2px 0 15px;
+  font-size: $text-primary-size;
+
+  &:focus {
+    outline: none;
+    border-color: $text-secondary-color;
+  }
+}
+
+#arrow-down {
+  width: 16px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+#autocomplete-box {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  max-height: 300px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 7px;
+  overflow-y: scroll;
+  z-index: 999;
+  .autocomplete-item {
+    user-select: none;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      background: rgba(0,0,0,0.2);
+    }
+  }
+}
+
+// SCROLLBAR
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

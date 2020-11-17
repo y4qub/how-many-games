@@ -1,0 +1,133 @@
+@import '~src/variables.scss';
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+main {
+  height: 100vh;
+  background-image: url("../assets/imgs/background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  //background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: proxima-nova, sans-serif;
+  color: white;
+  font-size: $text-primary-size;
+  padding: 0 60px;
+}
+
+section {
+  text-align: center !important;
+  max-width: 1000px;
+  line-height: 60px;
+  position: relative;
+
+  input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    font-family: proxima-nova, sans-serif;
+    color: $text-primary-color;
+    text-align: center;
+    width: 208px;
+    transition: $transition;
+    padding: 4px 8px;
+    margin: 0 15px;
+    font-size: $text-primary-size;
+
+    &:focus {
+      outline: none;
+      border-color: $text-secondary-color;
+    }
+  }
+}
+
+#total-games {
+  margin-top: 80px;
+  font-size: 43px;
+  position: absolute;
+  bottom: -110px;
+  width: 100%;
+  z-index: 1;
+}
+
+footer {
+  user-select: none;
+  padding: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  color: $text-primary-color;
+  #links {
+    min-width: fit-content;
+    display: flex;
+    align-items: flex-end;
+    margin-right: auto;
+    > div {
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        color: $text-secondary-color;
+      }
+    }
+    > div:not(:last-child) {
+      padding: 0 30px 0 0;
+    }
+  }
+  #notice {
+    max-width: 900px;
+    text-align: right;
+    margin-left: 70px;
+  }
+}
+
+.menu {
+  padding: 20px;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: rgb(255,255,255,0.9);
+  color: rgb(20,20,20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  text-align: center;
+
+  .link {
+    color: rebeccapurple;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .title {
+    font-weight: bold;
+    padding-bottom: 8px;
+  }
+}
+
+@media only screen and (max-width: 1018px) {
+  #notice {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #links {
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  footer {
+    padding: 40px 15px;
+  }
+}
